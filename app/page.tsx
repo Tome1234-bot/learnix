@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown, Search, GraduationCap } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown, Search, GraduationCap, MapPin, Phone, Mail, Clock, Users, BookOpen, Star, ArrowRight, Filter, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -20,19 +20,20 @@ export default function LandingPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<any[]>([])
   const [isSearching, setIsSearching] = useState(false)
+  const [searchFilter, setSearchFilter] = useState("all")
 
   // Mock course data for search
   const allCourses = [
-    { id: 1, title: "Introduction to Web Development", category: "Programming", type: "Video Course" },
-    { id: 2, title: "Advanced JavaScript", category: "Programming", type: "Video Course" },
-    { id: 3, title: "React Fundamentals", category: "Programming", type: "Video Course" },
-    { id: 4, title: "Python for Beginners", category: "Programming", type: "PDF Course" },
-    { id: 5, title: "Data Science Basics", category: "Data Science", type: "PDF Course" },
-    { id: 6, title: "Machine Learning Guide", category: "Data Science", type: "PDF Course" },
-    { id: 7, title: "UI/UX Design Principles", category: "Design", type: "Community Course" },
-    { id: 8, title: "Digital Marketing", category: "Marketing", type: "Community Course" },
-    { id: 9, title: "Business Analytics", category: "Business", type: "Video Course" },
-    { id: 10, title: "Project Management", category: "Business", type: "PDF Course" },
+    { id: 1, title: "Introduction to Web Development", category: "Programming", type: "Video Course", rating: 4.8, students: 1250 },
+    { id: 2, title: "Advanced JavaScript", category: "Programming", type: "Video Course", rating: 4.9, students: 980 },
+    { id: 3, title: "React Fundamentals", category: "Programming", type: "Video Course", rating: 4.7, students: 1450 },
+    { id: 4, title: "Python for Beginners", category: "Programming", type: "PDF Course", rating: 4.6, students: 2100 },
+    { id: 5, title: "Data Science Basics", category: "Data Science", type: "PDF Course", rating: 4.8, students: 890 },
+    { id: 6, title: "Machine Learning Guide", category: "Data Science", type: "PDF Course", rating: 4.9, students: 750 },
+    { id: 7, title: "UI/UX Design Principles", category: "Design", type: "Community Course", rating: 4.7, students: 1200 },
+    { id: 8, title: "Digital Marketing", category: "Marketing", type: "Community Course", rating: 4.5, students: 1600 },
+    { id: 9, title: "Business Analytics", category: "Business", type: "Video Course", rating: 4.6, students: 920 },
+    { id: 10, title: "Project Management", category: "Business", type: "PDF Course", rating: 4.8, students: 1100 },
   ]
 
   const handleSearch = (query: string) => {
@@ -44,19 +45,23 @@ export default function LandingPage() {
     }
 
     setIsSearching(true)
-    const filtered = allCourses.filter(
+    let filtered = allCourses.filter(
       (course) =>
         course.title.toLowerCase().includes(query.toLowerCase()) ||
         course.category.toLowerCase().includes(query.toLowerCase()) ||
         course.type.toLowerCase().includes(query.toLowerCase()),
     )
+
+    if (searchFilter !== "all") {
+      filtered = filtered.filter(course => course.type.toLowerCase().includes(searchFilter.toLowerCase()))
+    }
+
     setSearchResults(filtered)
   }
 
   const performSearch = () => {
     if (searchQuery.trim()) {
       handleSearch(searchQuery)
-      // You can add additional search logic here, like navigating to a search results page
       console.log("Performing search for:", searchQuery)
     }
   }
@@ -70,104 +75,112 @@ export default function LandingPage() {
   }
 
   useEffect(() => {
-    // Simulate dynamic data loading
     setTotalStudents(15420)
     setTotalCourses(250)
   }, [])
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* Navigation */}
-      <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
+      {/* Modern Glassmorphism Navigation */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-18">
-            {/* Logo Section */}
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
-                <GraduationCap className="h-6 w-6 md:h-7 md:w-7 text-blue-600" />
+          <div className="flex items-center justify-between h-20">
+            {/* Enhanced Logo Section */}
+            <div className="flex items-center space-x-4">
+              <div className="relative">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <GraduationCap className="h-7 w-7 text-white" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
               </div>
-              <button
-                onClick={() => scrollToSection("hero")}
-                className="text-white font-bold text-xl md:text-2xl tracking-tight hover:text-blue-200 transition-colors"
-              >
-                Learnix
-              </button>
+              <div>
+                <button
+                  onClick={() => scrollToSection("hero")}
+                  className="text-gray-800 font-bold text-2xl tracking-tight hover:text-blue-600 transition-colors"
+                >
+                  Learnix
+                </button>
+                <p className="text-xs text-gray-500 font-medium">Learn • Grow • Succeed</p>
+              </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("hero")}
-                className="text-white font-medium px-4 py-2 rounded-lg hover:bg-white/15 transition-colors duration-300"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection("courses")}
-                className="text-white font-medium px-4 py-2 rounded-lg hover:bg-white/15 transition-colors duration-300"
-              >
-                Courses
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="text-white font-medium px-4 py-2 rounded-lg hover:bg-white/15 transition-colors duration-300"
-              >
-                FAQ
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-white font-medium px-4 py-2 rounded-lg hover:bg-white/15 transition-colors duration-300"
-              >
-                Contact
-              </button>
-
-              {/* Desktop Login Dropdown */}
-              <div className="relative">
+            {/* Desktop Navigation with Modern Pills */}
+            <div className="hidden md:flex items-center space-x-2">
+              <div className="flex items-center space-x-1 bg-gray-100 rounded-full p-1">
                 <button
-                  className="bg-white/90 text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
+                  onClick={() => scrollToSection("hero")}
+                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => scrollToSection("courses")}
+                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  Courses
+                </button>
+                <button
+                  onClick={() => scrollToSection("faq")}
+                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  FAQ
+                </button>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  Contact
+                </button>
+              </div>
+
+              {/* Enhanced Login Dropdown */}
+              <div className="relative ml-4">
+                <button
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-8 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
                 >
                   <span>Login</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`}
-                  />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
 
-                {/* Responsive Dropdown Menu */}
                 <div
-                  className={`absolute right-0 mt-2 w-48 sm:w-56 bg-white rounded-xl shadow-xl transition-all duration-300 ${
+                  className={`absolute right-0 mt-3 w-64 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 transition-all duration-300 ${
                     isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                   }`}
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                  <Link
-                    href="/login/lecturer"
-                    className="block px-5 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-600 hover:pl-6 transition-all duration-300 rounded-t-xl border-b border-gray-100"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <GraduationCap className="h-4 w-4" />
-                      <span>Login as Lecturer</span>
-                    </div>
-                  </Link>
-                  <Link
-                    href="/login/student"
-                    className="block px-5 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-600 hover:pl-6 transition-all duration-300 rounded-b-xl"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <GraduationCap className="h-4 w-4" />
-                      <span>Login as Student</span>
-                    </div>
-                  </Link>
+                  <div className="p-2">
+                    <Link
+                      href="/login/lecturer"
+                      className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
+                    >
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                        <GraduationCap className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Lecturer Portal</p>
+                        <p className="text-xs text-gray-500">Manage your courses</p>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/login/student"
+                      className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
+                    >
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                        <Users className="h-5 w-5 text-purple-600" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">Student Portal</p>
+                        <p className="text-xs text-gray-500">Access your learning</p>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white text-2xl p-2 hover:scale-110 transition-transform duration-300"
+              className="md:hidden text-gray-700 text-2xl p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? "✕" : "☰"}
@@ -177,54 +190,53 @@ export default function LandingPage() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg transition-all duration-300 ${
+          className={`md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50 transition-all duration-300 ${
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
           <div className="px-4 pt-4 pb-6 space-y-2">
             <button
               onClick={() => scrollToSection("hero")}
-              className="block w-full text-left text-white font-medium px-4 py-3 rounded-lg hover:bg-white/20 transition-colors duration-300"
+              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("courses")}
-              className="block w-full text-left text-white font-medium px-4 py-3 rounded-lg hover:bg-white/20 transition-colors duration-300"
+              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
             >
               Courses
             </button>
             <button
               onClick={() => scrollToSection("faq")}
-              className="block w-full text-left text-white font-medium px-4 py-3 rounded-lg hover:bg-white/20 transition-colors duration-300"
+              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
             >
               FAQ
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="block w-full text-left text-white font-medium px-4 py-3 rounded-lg hover:bg-white/20 transition-colors duration-300"
+              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
             >
               Contact
             </button>
 
-            {/* Mobile Login Options */}
-            <div className="pt-4 border-t border-white/20">
-              <div className="bg-white/90 rounded-lg p-1 mx-2">
+            <div className="pt-4 border-t border-gray-200">
+              <div className="space-y-2">
                 <Link
                   href="/login/lecturer"
-                  className="flex items-center space-x-2 text-blue-600 font-semibold px-4 py-3 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300"
+                  className="flex items-center space-x-3 text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <GraduationCap className="h-4 w-4" />
-                  <span>Login as Lecturer</span>
+                  <GraduationCap className="h-5 w-5 text-blue-600" />
+                  <span>Lecturer Portal</span>
                 </Link>
                 <Link
                   href="/login/student"
-                  className="flex items-center space-x-2 text-blue-600 font-semibold px-4 py-3 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300"
+                  className="flex items-center space-x-3 text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <GraduationCap className="h-4 w-4" />
-                  <span>Login as Student</span>
+                  <Users className="h-5 w-5 text-purple-600" />
+                  <span>Student Portal</span>
                 </Link>
               </div>
             </div>
@@ -232,12 +244,12 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section with Video Background */}
-      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section */}
+      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
         <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
           <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -247,57 +259,117 @@ export default function LandingPage() {
             Access high-quality video lectures, downloadable PDFs, and join a community where you can discuss, comment,
             and chat with fellow students.
           </p>
-          <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold">
+          <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
             Get Started
           </Button>
         </div>
       </section>
 
-      {/* Search Section */}
-      <section id="search" className="py-16 bg-white">
+      {/* Enhanced Search Section */}
+      <section id="search" className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Find Your Perfect Course</h2>
-            <p className="text-xl text-gray-600 mb-8">Search through our extensive library of courses</p>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center mb-6">
+              <Sparkles className="h-8 w-8 text-blue-500 mr-3" />
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Find Your Perfect Course
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+              Search through our extensive library of courses and discover your next learning adventure
+            </p>
 
-            <div className="relative">
-              <div className="flex gap-2">
-                <Input
-                  type="text"
-                  placeholder="Search for courses, topics, or categories..."
-                  value={searchQuery}
-                  onChange={(e) => handleSearch(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && performSearch()}
-                  className="flex-1 px-6 py-4 text-lg border-2 border-gray-300 rounded-full focus:border-blue-500 focus:outline-none pr-4"
-                />
-                <Button
-                  onClick={performSearch}
-                  size="lg"
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-full flex items-center space-x-2"
-                >
-                  <Search className="h-5 w-5" />
-                  <span className="hidden sm:inline">Search</span>
-                </Button>
-              </div>
-
-              {isSearching && searchResults.length > 0 && (
-                <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 z-10 max-h-96 overflow-y-auto">
-                  {searchResults.map((course) => (
-                    <div key={course.id} className="p-4 hover:bg-gray-50 border-b border-gray-100 cursor-pointer">
-                      <h3 className="font-semibold text-gray-900">{course.title}</h3>
-                      <p className="text-sm text-gray-600">
-                        {course.category} • {course.type}
-                      </p>
+            <div className="relative mb-8">
+              <div className="bg-white rounded-2xl p-6 shadow-2xl border border-gray-200/50">
+                <div className="flex flex-col md:flex-row gap-4 mb-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                    <Input
+                      type="text"
+                      placeholder="Search for courses, topics, or categories..."
+                      value={searchQuery}
+                      onChange={(e) => handleSearch(e.target.value)}
+                      onKeyPress={(e) => e.key === "Enter" && performSearch()}
+                      className="pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none bg-gray-50 hover:bg-white transition-colors"
+                    />
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="relative">
+                      <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                      <select
+                        value={searchFilter}
+                        onChange={(e) => setSearchFilter(e.target.value)}
+                        className="pl-10 pr-8 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none bg-gray-50 hover:bg-white transition-colors appearance-none cursor-pointer"
+                      >
+                        <option value="all">All Types</option>
+                        <option value="video">Video Courses</option>
+                        <option value="pdf">PDF Courses</option>
+                        <option value="community">Community</option>
+                      </select>
                     </div>
-                  ))}
+                    <Button
+                      onClick={performSearch}
+                      size="lg"
+                      className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl flex items-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <Search className="h-5 w-5" />
+                      <span>Search</span>
+                    </Button>
+                  </div>
                 </div>
-              )}
 
-              {isSearching && searchResults.length === 0 && searchQuery.trim() !== "" && (
-                <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 z-10 p-4">
-                  <p className="text-gray-600 text-center">No courses found for "{searchQuery}"</p>
-                </div>
-              )}
+                {/* Search Results */}
+                {isSearching && searchResults.length > 0 && (
+                  <div className="mt-6 max-h-96 overflow-y-auto">
+                    <div className="grid gap-3">
+                      {searchResults.map((course) => (
+                        <div key={course.id} className="p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 cursor-pointer group">
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1">
+                              <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{course.title}</h3>
+                              <div className="flex items-center space-x-4 mt-2">
+                                <span className="text-sm text-gray-600 bg-blue-100 px-2 py-1 rounded-full">{course.category}</span>
+                                <span className="text-sm text-gray-600 bg-purple-100 px-2 py-1 rounded-full">{course.type}</span>
+                                <div className="flex items-center space-x-1">
+                                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                                  <span className="text-sm text-gray-600">{course.rating}</span>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                  <Users className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm text-gray-600">{course.students}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {isSearching && searchResults.length === 0 && searchQuery.trim() !== "" && (
+                  <div className="mt-6 p-8 text-center bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
+                    <Search className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-600 text-lg">No courses found for "{searchQuery}"</p>
+                    <p className="text-gray-500 text-sm mt-2">Try adjusting your search terms or filters</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Popular Search Tags */}
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="text-sm text-gray-600 mr-2">Popular:</span>
+              {["JavaScript", "Python", "React", "Data Science", "UI/UX", "Marketing"].map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => handleSearch(tag)}
+                  className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors border border-gray-200 hover:border-blue-300"
+                >
+                  {tag}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -436,89 +508,43 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-16 bg-gray-50">
+      {/* Enhanced FAQ Section */}
+      <section id="faq" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left">How do I enroll in a course?</AccordionTrigger>
-              <AccordionContent>Simply sign up, choose a course, and click enroll.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left">Can I get a refund?</AccordionTrigger>
-              <AccordionContent>Yes, we offer a 30-day money-back guarantee on all courses.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left">Do I need any prior experience?</AccordionTrigger>
-              <AccordionContent>
-                No prior experience is required. Our courses are designed for all levels.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section id="newsletter" className="py-16 bg-blue-500 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-xl mb-8">Stay updated with the latest courses and community news.</p>
-
-          <div className="max-w-md mx-auto flex gap-4">
-            <Input type="email" placeholder="Enter your email" className="flex-1 text-black" />
-            <Button variant="secondary" className="bg-white text-blue-500 hover:bg-gray-100 font-semibold">
-              Subscribe
-            </Button>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Get answers to common questions about our courses and platform
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-xl text-gray-600 mb-8">Have questions? Contact us anytime and we'll be happy to help.</p>
-          <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold">
-            <Link href="/contact">Contact Us</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Simple Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <GraduationCap className="h-5 w-5 text-blue-600" />
-              </div>
-              <span className="text-xl font-bold">Learnix</span>
-            </div>
-
-            <div className="flex space-x-6">
-              <Link href="https://facebook.com" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="h-6 w-6" />
-              </Link>
-              <Link href="https://twitter.com" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
-              </Link>
-              <Link href="https://instagram.com" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="h-6 w-6" />
-              </Link>
-              <Link href="https://linkedin.com" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-6 w-6" />
-              </Link>
-              <Link href="https://youtube.com" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube className="h-6 w-6" />
-              </Link>
-            </div>
-
-            <p className="text-gray-400 text-center">&copy; {currentYear} Learnix. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1" className="border-b border-gray-100">
+                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <BookOpen className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+                        How do I enroll in a course?
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-1">Getting started with your learning journey</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6">
+                  <div className="ml-16 text-gray-600 leading-relaxed">
+                    <p className="mb-3">
+                      Enrolling in a course is simple and straightforward. Here's how:
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Create your free account or log in if you already have one</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0">
