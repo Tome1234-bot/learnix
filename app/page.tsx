@@ -85,8 +85,14 @@ export default function LandingPage() {
 <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-lg z-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex items-center justify-between h-20">
-      {/* Logo Section */}
+      {/* Logo with Icon */}
       <div className="flex items-center space-x-4">
+        <div className="relative">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <GraduationCap className="h-7 w-7 text-white" />
+          </div>
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+        </div>
         <div>
           <button
             onClick={() => scrollToSection("hero")}
@@ -229,6 +235,7 @@ export default function LandingPage() {
     </div>
   </div>
 </nav>
+
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
@@ -446,338 +453,219 @@ export default function LandingPage() {
       </section>
 
       {/* Community Section */}
-      <section id="community" className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Community</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Connect with other learners, ask questions, share knowledge, and get support.
+<section id="community" className="py-24 bg-gradient-to-br from-blue-100 to-blue-50">
+  <div className="max-w-5xl mx-auto px-6 text-center">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-6">Join Our Thriving Community</h2>
+    <p className="text-lg md:text-xl text-gray-600 mb-10">
+      Collaborate, learn, and grow with like-minded learners. Share knowledge, ask questions, and get the support you need to thrive.
+    </p>
+    <Link href="/community">
+      <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-md transition duration-300">
+        Explore Community
+      </Button>
+    </Link>
+  </div>
+</section>
+
+{/* Testimonials Section */}
+<section id="testimonials" className="py-24 bg-white">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-12">What Our Students Say</h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {/* Testimonial 1 */}
+      <Card className="hover:shadow-xl transition-shadow duration-300 rounded-2xl border border-gray-100">
+        <CardContent className="p-6">
+          <div className="flex items-center mb-4">
+            <Image src="/student1.jpg" alt="Jane Doe" width={60} height={60} className="rounded-full mr-4 shadow-sm" />
+            <div>
+              <p className="text-lg font-semibold text-blue-600">Jane Doe</p>
+              <p className="text-sm text-gray-500">Computer Science Student</p>
+            </div>
+          </div>
+          <p className="text-gray-700 leading-relaxed italic">
+            “Learnix has transformed my learning experience. The courses are engaging and the community is very supportive.”
           </p>
-          <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold">
-            <Link href="/community">Explore Community</Link>
-          </Button>
-        </div>
-      </section>
+        </CardContent>
+      </Card>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Our Students Say</h2>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  <Image src="/student1.jpg" alt="Jane Doe" width={60} height={60} className="rounded-full mr-4" />
-                  <div>
-                    <p className="font-semibold text-blue-500">Jane Doe</p>
-                    <p className="text-sm text-gray-500">Computer Science Student</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">
-                  "Learnix has transformed my learning experience. The courses are engaging and the community is very
-                  supportive."
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  <Image src="/student2.jpg" alt="John Smith" width={60} height={60} className="rounded-full mr-4" />
-                  <div>
-                    <p className="font-semibold text-blue-500">John Smith</p>
-                    <p className="text-sm text-gray-500">Business Student</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">
-                  "A fantastic platform with quality content. I love the interactive community!"
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  <Image src="/student3.jpg" alt="Alice Johnson" width={60} height={60} className="rounded-full mr-4" />
-                  <div>
-                    <p className="font-semibold text-blue-500">Alice Johnson</p>
-                    <p className="text-sm text-gray-500">Design Student</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">
-                  "The online courses helped me advance my skills in no time. Highly recommended!"
-                </p>
-              </CardContent>
-            </Card>
+      {/* Testimonial 2 */}
+      <Card className="hover:shadow-xl transition-shadow duration-300 rounded-2xl border border-gray-100">
+        <CardContent className="p-6">
+          <div className="flex items-center mb-4">
+            <Image src="/student2.jpg" alt="John Smith" width={60} height={60} className="rounded-full mr-4 shadow-sm" />
+            <div>
+              <p className="text-lg font-semibold text-blue-600">John Smith</p>
+              <p className="text-sm text-gray-500">Business Student</p>
+            </div>
           </div>
-        </div>
-      </section>
+          <p className="text-gray-700 leading-relaxed italic">
+            “A fantastic platform with quality content. I love the interactive community!”
+          </p>
+        </CardContent>
+      </Card>
 
-      {/* Enhanced FAQ Section */}
-      <section id="faq" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Get answers to common questions about our courses and platform
-            </p>
+      {/* Testimonial 3 */}
+      <Card className="hover:shadow-xl transition-shadow duration-300 rounded-2xl border border-gray-100">
+        <CardContent className="p-6">
+          <div className="flex items-center mb-4">
+            <Image src="/student3.jpg" alt="Alice Johnson" width={60} height={60} className="rounded-full mr-4 shadow-sm" />
+            <div>
+              <p className="text-lg font-semibold text-blue-600">Alice Johnson</p>
+              <p className="text-sm text-gray-500">Design Student</p>
+            </div>
           </div>
+          <p className="text-gray-700 leading-relaxed italic">
+            “The online courses helped me advance my skills in no time. Highly recommended!”
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
 
-          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1" className="border-b border-gray-100">
-                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <BookOpen className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-                        How do I enroll in a course?
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">Getting started with your learning journey</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6">
-                  <div className="ml-16 text-gray-600 leading-relaxed">
-                    <p className="mb-3">
-                      Enrolling in a course is simple and straightforward. Here's how:
-                    </p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Create your free account or log in if you already have one</span>
-                      </li>
-                      <li className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Browse our course catalog and select the course you want</span>
-                      </li>
-                      <li className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Click "Enroll Now" and complete the enrollment process</span>
-                      </li>
-                      <li className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Start learning immediately with full access to course materials</span>
-                      </li>
-                    </ul>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+      {/* Clean FAQ Section */}
+<section id="faq" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+  <div className="container mx-auto px-4 max-w-4xl">
+    <div className="text-center mb-14">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Frequently Asked Questions
+      </h2>
+      <p className="text-lg text-gray-600">
+        Quick answers to common questions about our platform
+      </p>
+    </div>
 
-              <AccordionItem value="item-2" className="border-b border-gray-100">
-                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <ArrowRight className="h-6 w-6 text-white transform rotate-180" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-                        Can I get a refund?
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">Our refund policy and guarantees</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6">
-                  <div className="ml-16 text-gray-600 leading-relaxed">
-                    <p className="mb-3">
-                      Yes! We offer a comprehensive 30-day money-back guarantee on all our courses.
-                    </p>
-                    <p className="mb-3">
-                      If you're not completely satisfied with your course within 30 days of enrollment, 
-                      we'll provide a full refund, no questions asked. Simply contact our support team 
-                      and we'll process your refund within 3-5 business days.
-                    </p>
-                    <p className="text-sm text-blue-600 font-medium">
-                      💡 We're confident in the quality of our courses and want you to learn with peace of mind.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+    <div className="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <Accordion type="single" collapsible className="w-full divide-y divide-gray-100">
+        
+        {/* FAQ 1 */}
+        <AccordionItem value="faq-1">
+          <AccordionTrigger className="text-left px-8 py-6 hover:bg-blue-50 transition-colors">
+            <span className="font-semibold text-lg text-gray-900">How do I enroll in a course?</span>
+          </AccordionTrigger>
+          <AccordionContent className="px-8 pb-6 text-gray-700 leading-relaxed">
+            Create a free account, browse our catalog, and click "Enroll Now" to start learning immediately.
+          </AccordionContent>
+        </AccordionItem>
 
-              <AccordionItem value="item-3" className="border-b border-gray-100">
-                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Star className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-                        Do I need any prior experience?
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">Prerequisites and skill levels</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6">
-                  <div className="ml-16 text-gray-600 leading-relaxed">
-                    <p className="mb-3">
-                      No prior experience is required! Our courses are designed to accommodate learners of all levels.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-4 mt-4">
-                      <div className="bg-green-50 p-4 rounded-xl border border-green-200">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                          <span className="font-medium text-green-700">Beginner</span>
-                        </div>
-                        <p className="text-sm text-green-600">Start from scratch with foundational concepts</p>
-                      </div>
-                      <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                          <span className="font-medium text-blue-700">Intermediate</span>
-                        </div>
-                        <p className="text-sm text-blue-600">Build on existing knowledge and skills</p>
-                      </div>
-                      <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                          <span className="font-medium text-purple-700">Advanced</span>
-                        </div>
-                        <p className="text-sm text-purple-600">Master advanced techniques and concepts</p>
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+        {/* FAQ 2 */}
+        <AccordionItem value="faq-2">
+          <AccordionTrigger className="text-left px-8 py-6 hover:bg-blue-50 transition-colors">
+            <span className="font-semibold text-lg text-gray-900">Can I get a refund?</span>
+          </AccordionTrigger>
+          <AccordionContent className="px-8 pb-6 text-gray-700 leading-relaxed">
+            Yes. We offer a 30-day money-back guarantee on all courses. Contact support within that window for a full refund.
+          </AccordionContent>
+        </AccordionItem>
 
-              <AccordionItem value="item-4" className="border-b border-gray-100">
-                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Clock className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-                        How long do I have access to courses?
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">Course access duration and policies</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6">
-                  <div className="ml-16 text-gray-600 leading-relaxed">
-                    <p className="mb-3">
-                      You get lifetime access to all enrolled courses! Once you enroll, you can:
-                    </p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span>Access course materials anytime, anywhere</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span>Download PDFs and resources for offline study</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span>Receive all future updates and additional content</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span>Participate in community discussions indefinitely</span>
-                      </li>
-                    </ul>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+        {/* FAQ 3 */}
+        <AccordionItem value="faq-3">
+          <AccordionTrigger className="text-left px-8 py-6 hover:bg-blue-50 transition-colors">
+            <span className="font-semibold text-lg text-gray-900">Do I need any prior experience?</span>
+          </AccordionTrigger>
+          <AccordionContent className="px-8 pb-6 text-gray-700 leading-relaxed">
+            No prior knowledge required! Our courses are designed for all skill levels — from beginners to advanced learners.
+          </AccordionContent>
+        </AccordionItem>
 
-              <AccordionItem value="item-5">
-                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Users className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-                        Is there community support?
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-1">Community features and support options</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6">
-                  <div className="ml-16 text-gray-600 leading-relaxed">
-                    <p className="mb-3">
-                      Absolutely! Our vibrant community is one of our strongest features:
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-4 mt-4">
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-sm">Discussion forums for each course</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-sm">Real-time chat with fellow students</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-sm">Q&A sessions with instructors</span>
-                        </div>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <span className="text-sm">Study groups and peer collaboration</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <span className="text-sm">24/7 technical support</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <span className="text-sm">Weekly live webinars</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
+      </Accordion>
+    </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
-            <Button 
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Contact Our Support Team
-            </Button>
-          </div>
-        </div>
-      </section>
+    <div className="mt-12 text-center">
+      <p className="text-gray-600 mb-4">Have more questions?</p>
+      <Button
+        onClick={() => scrollToSection("contact")}
+        className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:shadow-xl transition duration-300"
+      >
+        Contact Support
+      </Button>
+    </div>
+  </div>
+</section>
 
-      {/* Newsletter */}
-      <section id="newsletter" className="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-xl mb-8">Stay updated with the latest courses and community news.</p>
+      {/* Contact Section */}
+<section id="contact" className="py-20 bg-white">
+  <div className="container mx-auto px-4 max-w-4xl">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+      <p className="text-lg text-gray-600 max-w-xl mx-auto">
+        We’re here to help. Reach out with any questions, feedback, or partnership opportunities.
+      </p>
+    </div>
 
-          <div className="max-w-md mx-auto flex gap-4">
-            <Input type="email" placeholder="Enter your email" className="flex-1 text-black" />
-            <Button variant="secondary" className="bg-white text-blue-500 hover:bg-gray-100 font-semibold">
-              Subscribe
-            </Button>
-          </div>
-        </div>
-      </section>
+    <form className="bg-gray-50 p-8 rounded-3xl shadow-xl space-y-6 border border-gray-200">
+      <div className="grid md:grid-cols-2 gap-6">
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <textarea
+        rows="5"
+        placeholder="Your Message"
+        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+      ></textarea>
+      <div className="text-center">
+        <button
+          type="submit"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition duration-300"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
 
-      {/* Contact */}
-      <section id="contact" className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-xl text-gray-600 mb-8">Have questions? Contact us anytime and we'll be happy to help.</p>
-          <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold">
-            <Link href="/contact">Contact Us</Link>
-          </Button>
-        </div>
-      </section>
+    <div className="mt-12 text-center text-sm text-gray-500">
+      Or email us directly at <a href="mailto:support@yourdomain.com" className="text-blue-600 underline">support@yourdomain.com</a>
+    </div>
+  </div>
+</section>
+
+     
+      {/* Newsletter Section */}
+<section
+  id="newsletter"
+  className="py-20 bg-gradient-to-br from-blue-600 via-purple-700 to-indigo-800 text-white"
+>
+  <div className="container mx-auto px-4">
+    <div className="max-w-2xl mx-auto text-center">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+        Join Our Newsletter
+      </h2>
+      <p className="text-lg md:text-xl text-blue-100 mb-10">
+        Be the first to know about new courses, community events, and special updates.
+      </p>
+
+      <form className="flex flex-col sm:flex-row items-center gap-4 w-full">
+        <input
+          type="email"
+          placeholder="Your email address"
+          className="w-full sm:flex-1 px-5 py-3 rounded-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <button
+          type="submit"
+          className="px-6 py-3 bg-white text-blue-600 font-bold rounded-full hover:bg-gray-100 transition-all duration-300"
+        >
+          Subscribe
+        </button>
+      </form>
+
+      <p className="text-sm text-blue-100 mt-6">
+        We respect your privacy. No spam, unsubscribe anytime.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+      
 
       {/* Enhanced Footer */}
       <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
