@@ -547,4 +547,367 @@ export default function LandingPage() {
                         <span>Create your free account or log in if you already have one</span>
                       </li>
                       <li className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Browse our course catalog and select the course you want</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Click "Enroll Now" and complete the enrollment process</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Start learning immediately with full access to course materials</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border-b border-gray-100">
+                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <ArrowRight className="h-6 w-6 text-white transform rotate-180" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+                        Can I get a refund?
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-1">Our refund policy and guarantees</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6">
+                  <div className="ml-16 text-gray-600 leading-relaxed">
+                    <p className="mb-3">
+                      Yes! We offer a comprehensive 30-day money-back guarantee on all our courses.
+                    </p>
+                    <p className="mb-3">
+                      If you're not completely satisfied with your course within 30 days of enrollment, 
+                      we'll provide a full refund, no questions asked. Simply contact our support team 
+                      and we'll process your refund within 3-5 business days.
+                    </p>
+                    <p className="text-sm text-blue-600 font-medium">
+                      💡 We're confident in the quality of our courses and want you to learn with peace of mind.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border-b border-gray-100">
+                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Star className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+                        Do I need any prior experience?
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-1">Prerequisites and skill levels</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6">
+                  <div className="ml-16 text-gray-600 leading-relaxed">
+                    <p className="mb-3">
+                      No prior experience is required! Our courses are designed to accommodate learners of all levels.
+                    </p>
+                    <div className="grid md:grid-cols-3 gap-4 mt-4">
+                      <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <span className="font-medium text-green-700">Beginner</span>
+                        </div>
+                        <p className="text-sm text-green-600">Start from scratch with foundational concepts</p>
+                      </div>
+                      <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <span className="font-medium text-blue-700">Intermediate</span>
+                        </div>
+                        <p className="text-sm text-blue-600">Build on existing knowledge and skills</p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          <span className="font-medium text-purple-700">Advanced</span>
+                        </div>
+                        <p className="text-sm text-purple-600">Master advanced techniques and concepts</p>
+                      </div>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border-b border-gray-100">
+                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Clock className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+                        How long do I have access to courses?
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-1">Course access duration and policies</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6">
+                  <div className="ml-16 text-gray-600 leading-relaxed">
+                    <p className="mb-3">
+                      You get lifetime access to all enrolled courses! Once you enroll, you can:
+                    </p>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span>Access course materials anytime, anywhere</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span>Download PDFs and resources for offline study</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span>Receive all future updates and additional content</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span>Participate in community discussions indefinitely</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-left px-8 py-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Users className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+                        Is there community support?
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-1">Community features and support options</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6">
+                  <div className="ml-16 text-gray-600 leading-relaxed">
+                    <p className="mb-3">
+                      Absolutely! Our vibrant community is one of our strongest features:
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-4 mt-4">
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-sm">Discussion forums for each course</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-sm">Real-time chat with fellow students</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-sm">Q&A sessions with instructors</span>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-sm">Study groups and peer collaboration</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-sm">24/7 technical support</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-sm">Weekly live webinars</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Still have questions?</p>
+            <Button 
+              onClick={() => scrollToSection("contact")}
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Contact Our Support Team
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section id="newsletter" className="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+          <p className="text-xl mb-8">Stay updated with the latest courses and community news.</p>
+
+          <div className="max-w-md mx-auto flex gap-4">
+            <Input type="email" placeholder="Enter your email" className="flex-1 text-black" />
+            <Button variant="secondary" className="bg-white text-blue-500 hover:bg-gray-100 font-semibold">
+              Subscribe
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+          <p className="text-xl text-gray-600 mb-8">Have questions? Contact us anytime and we'll be happy to help.</p>
+          <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold">
+            <Link href="/contact">Contact Us</Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 bg-purple-500/10 rounded-full blur-xl"></div>
+        </div>
+
+        <div className="relative z-10">
+          {/* Main Footer Content */}
+          <div className="container mx-auto px-4 py-16">
+            <div className="grid md:grid-cols-4 gap-8">
+              {/* Company Info */}
+              <div className="md:col-span-1">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <GraduationCap className="h-7 w-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold">Learnix</h3>
+                    <p className="text-sm text-gray-400">Learn • Grow • Succeed</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 mb-6 leading-relaxed">
+                  Empowering students worldwide with high-quality online education and a supportive learning community.
+                </p>
+                <div className="flex space-x-4">
+                  <Link href="https://facebook.com" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300 group">
+                    <Facebook className="h-5 w-5 text-gray-400 group-hover:text-white" />
+                  </Link>
+                  <Link href="https://twitter.com" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors duration-300 group">
+                    <Twitter className="h-5 w-5 text-gray-400 group-hover:text-white" />
+                  </Link>
+                  <Link href="https://instagram.com" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300 group">
+                    <Instagram className="h-5 w-5 text-gray-400 group-hover:text-white" />
+                  </Link>
+                  <Link href="https://linkedin.com" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300 group">
+                    <Linkedin className="h-5 w-5 text-gray-400 group-hover:text-white" />
+                  </Link>
+                  <Link href="https://youtube.com" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300 group">
+                    <Youtube className="h-5 w-5 text-gray-400 group-hover:text-white" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+                <ul className="space-y-3">
+                  <li><button onClick={() => scrollToSection("courses")} className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform">Browse Courses</button></li>
+                  <li><button onClick={() => scrollToSection("community")} className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform">Join Community</button></li>
+                  <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">About Us</Link></li>
+                  <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Blog</Link></li>
+                  <li><Link href="/careers" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Careers</Link></li>
+                </ul>
+              </div>
+
+              {/* Support */}
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Support</h4>
+                <ul className="space-y-3">
+                  <li><Link href="/help" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Help Center</Link></li>
+                  <li><button onClick={() => scrollToSection("faq")} className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform">FAQ</button></li>
+                  <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Contact Us</Link></li>
+                  <li><Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Privacy Policy</Link></li>
+                  <li><Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-2 transform inline-block">Terms of Service</Link></li>
+                </ul>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Contact Info</h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <MapPin className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm">123 Learning Street</p>
+                      <p className="text-gray-400 text-sm">Education City, ED 12345</p>
+                    </div>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <p className="text-gray-400 text-sm">hello@learnix.com</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-gray-700">
+            <div className="container mx-auto px-4 py-8">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div className="flex items-center space-x-6">
+                  <p className="text-gray-400 text-sm">
+                    &copy; {currentYear} Learnix. All rights reserved.
+                  </p>
+                  <div className="flex items-center space-x-2 text-sm text-gray-400">
+                    <Users className="h-4 w-4" />
+                    <span>{totalStudents.toLocaleString()} students</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm text-gray-400">
+                    <BookOpen className="h-4 w-4" />
+                    <span>{totalCourses} courses</span>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Link href="/sitemap" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Sitemap
+                  </Link>
+                  <Link href="/accessibility" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Accessibility
+                  </Link>
+                  <div className="flex items-center space-x-2 text-sm text-gray-400">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span>All systems operational</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
