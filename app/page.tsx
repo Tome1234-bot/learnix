@@ -265,115 +265,134 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Enhanced Search Section */}
-      <section id="search" className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center mb-6">
-              <Sparkles className="h-8 w-8 text-blue-500 mr-3" />
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Find Your Perfect Course
-              </h2>
-            </div>
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              Search through our extensive library of courses and discover your next learning adventure
-            </p>
+     <section
+  id="search"
+  className="py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50"
+>
+  <div className="max-w-5xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-12">
+      <div className="flex items-center justify-center mb-4">
+        <Sparkles className="h-7 w-7 text-blue-500 mr-2" />
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Find Your Perfect Course
+        </h2>
+      </div>
+      <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+        Search through our extensive library of courses and discover your next learning adventure.
+      </p>
+    </div>
 
-            <div className="relative mb-8">
-              <div className="bg-white rounded-2xl p-6 shadow-2xl border border-gray-200/50">
-                <div className="flex flex-col md:flex-row gap-4 mb-4">
-                  <div className="flex-1 relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                    <Input
-                      type="text"
-                      placeholder="Search for courses, topics, or categories..."
-                      value={searchQuery}
-                      onChange={(e) => handleSearch(e.target.value)}
-                      onKeyPress={(e) => e.key === "Enter" && performSearch()}
-                      className="pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none bg-gray-50 hover:bg-white transition-colors"
-                    />
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="relative">
-                      <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                      <select
-                        value={searchFilter}
-                        onChange={(e) => setSearchFilter(e.target.value)}
-                        className="pl-10 pr-8 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none bg-gray-50 hover:bg-white transition-colors appearance-none cursor-pointer"
-                      >
-                        <option value="all">All Types</option>
-                        <option value="video">Video Courses</option>
-                        <option value="pdf">PDF Courses</option>
-                        <option value="community">Community</option>
-                      </select>
+    {/* Search Panel */}
+    <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center mb-4">
+        {/* Search Input */}
+        <div className="relative flex-1">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
+          <Input
+            type="text"
+            placeholder="Search courses, topics..."
+            value={searchQuery}
+            onChange={(e) => handleSearch(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && performSearch()}
+            className="w-full pl-12 pr-4 py-3 text-base rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none bg-gray-50"
+          />
+        </div>
+
+        {/* Filter & Button */}
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-2">
+          <div className="relative">
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <select
+              value={searchFilter}
+              onChange={(e) => setSearchFilter(e.target.value)}
+              className="pl-10 pr-6 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 bg-gray-50 appearance-none"
+            >
+              <option value="all">All Types</option>
+              <option value="video">Video Courses</option>
+              <option value="pdf">PDF Courses</option>
+              <option value="community">Community</option>
+            </select>
+          </div>
+
+          <Button
+            onClick={performSearch}
+            className="flex items-center justify-center gap-2 px-6 py-3 text-white text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl transition-all shadow-md"
+          >
+            <Search className="h-5 w-5" />
+            <span>Search</span>
+          </Button>
+        </div>
+      </div>
+
+      {/* Results */}
+      {isSearching && (
+        <div className="mt-6 max-h-[20rem] overflow-y-auto">
+          {searchResults.length > 0 ? (
+            <div className="grid gap-3">
+              {searchResults.map((course) => (
+                <div
+                  key={course.id}
+                  className="p-4 rounded-xl border bg-gradient-to-r from-gray-50 to-white hover:border-blue-400 hover:shadow transition"
+                >
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 hover:text-blue-600">
+                        {course.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 mt-2 text-sm text-gray-600">
+                        <span className="bg-blue-100 px-2 py-1 rounded-full">
+                          {course.category}
+                        </span>
+                        <span className="bg-purple-100 px-2 py-1 rounded-full">
+                          {course.type}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Star className="h-4 w-4 text-yellow-400" />
+                          {course.rating}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Users className="h-4 w-4 text-gray-400" />
+                          {course.students}
+                        </span>
+                      </div>
                     </div>
-                    <Button
-                      onClick={performSearch}
-                      size="lg"
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl flex items-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <Search className="h-5 w-5" />
-                      <span>Search</span>
-                    </Button>
+                    <ArrowRight className="h-5 w-5 text-gray-400 hover:text-blue-600" />
                   </div>
                 </div>
-
-                {/* Search Results */}
-                {isSearching && searchResults.length > 0 && (
-                  <div className="mt-6 max-h-96 overflow-y-auto">
-                    <div className="grid gap-3">
-                      {searchResults.map((course) => (
-                        <div key={course.id} className="p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 cursor-pointer group">
-                          <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{course.title}</h3>
-                              <div className="flex items-center space-x-4 mt-2">
-                                <span className="text-sm text-gray-600 bg-blue-100 px-2 py-1 rounded-full">{course.category}</span>
-                                <span className="text-sm text-gray-600 bg-purple-100 px-2 py-1 rounded-full">{course.type}</span>
-                                <div className="flex items-center space-x-1">
-                                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                                  <span className="text-sm text-gray-600">{course.rating}</span>
-                                </div>
-                                <div className="flex items-center space-x-1">
-                                  <Users className="h-4 w-4 text-gray-400" />
-                                  <span className="text-sm text-gray-600">{course.students}</span>
-                                </div>
-                              </div>
-                            </div>
-                            <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {isSearching && searchResults.length === 0 && searchQuery.trim() !== "" && (
-                  <div className="mt-6 p-8 text-center bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
-                    <Search className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600 text-lg">No courses found for "{searchQuery}"</p>
-                    <p className="text-gray-500 text-sm mt-2">Try adjusting your search terms or filters</p>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Popular Search Tags */}
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="text-sm text-gray-600 mr-2">Popular:</span>
-              {["JavaScript", "Python", "React", "Data Science", "UI/UX", "Marketing"].map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => handleSearch(tag)}
-                  className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors border border-gray-200 hover:border-blue-300"
-                >
-                  {tag}
-                </button>
               ))}
             </div>
-          </div>
+          ) : searchQuery.trim() !== "" ? (
+            <div className="mt-6 p-6 text-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl">
+              <Search className="h-10 w-10 text-gray-400 mx-auto mb-3" />
+              <p className="text-gray-600">No courses found for “{searchQuery}”</p>
+              <p className="text-sm text-gray-500 mt-1">
+                Try different keywords or filters
+              </p>
+            </div>
+          ) : null}
         </div>
-      </section>
+      )}
+    </div>
+
+    {/* Popular Tags */}
+    <div className="mt-8 flex flex-wrap justify-center items-center gap-3 text-sm">
+      <span className="text-gray-500">Popular:</span>
+      {["JavaScript", "Python", "React", "Data Science", "UI/UX", "Marketing"].map(
+        (tag) => (
+          <button
+            key={tag}
+            onClick={() => handleSearch(tag)}
+            className="bg-white border border-gray-200 hover:border-blue-300 text-gray-700 px-4 py-2 rounded-full hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            {tag}
+          </button>
+        )
+      )}
+    </div>
+  </div>
+</section>
+
 
       {/* Courses Section */}
       <section id="courses" className="py-16 bg-gray-50">
