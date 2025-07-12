@@ -227,7 +227,7 @@ export default function LandingPage() {
                   className="flex items-center space-x-3 text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <GraduationCap className="h-5 w-5 text-blue-600" />
+                  
                   <span>Lecturer Portal</span>
                 </Link>
                 <Link
