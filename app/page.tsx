@@ -240,7 +240,7 @@ export default function LandingPage() {
     {/* Hero Section */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
         <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          <source src="https://player.vimeo.com/external/440761041.sd.mp4?s=3e07f2480a2899a9c65e3b12b70eb57b8f010be7&profile_id=164" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
 
