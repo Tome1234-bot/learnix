@@ -154,7 +154,7 @@ export default function LandingPage() {
                       className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
                     >
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                        <GraduationCap className="h-5 w-5 text-blue-600" />
+                        
                       </div>
                       <div>
                         <p className="font-semibold">Lecturer Portal</p>
@@ -166,7 +166,7 @@ export default function LandingPage() {
                       className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
                     >
                       <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-                        <Users className="h-5 w-5 text-purple-600" />
+
                       </div>
                       <div>
                         <p className="font-semibold">Student Portal</p>
