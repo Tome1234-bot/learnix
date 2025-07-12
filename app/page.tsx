@@ -237,37 +237,28 @@ export default function LandingPage() {
 </nav>
 
 
-      {/* Hero Section */}
-<section id="hero" className="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-20">
-  <video
-    autoPlay
-    muted
-    loop
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source
-      src="https://player.vimeo.com/external/384378413.sd.mp4?s=63e50ec5028c69b9d39aa4d22b0bbcbfdaee5083&profile_id=164"
-      type="video/mp4"
-    />
-  </video>
-  <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+    {/* Hero Section */}
+      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
+        <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
 
-  <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-    <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-      Empowering Student Learning with Online Courses
-    </h1>
-    <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
-      Access high-quality video lectures, downloadable PDFs, and join a community where you can discuss, comment,
-      and chat with fellow students.
-    </p>
-    <Button
-      size="lg"
-      className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-    >
-      Get Started
-    </Button>
-  </div>
-</section>
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Empowering Student Learning with Online Courses
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+            Access high-quality video lectures, downloadable PDFs, and join a community where you can discuss, comment,
+            and chat with fellow students.
+          </p>
+          <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+            Get Started
+          </Button>
+        </div>
+      </section>
+
+     <section
 
   id="search"
   className="py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50"
