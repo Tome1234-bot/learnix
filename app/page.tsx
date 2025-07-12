@@ -82,167 +82,153 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Modern Glassmorphism Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-lg z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Enhanced Logo Section */}
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <GraduationCap className="h-7 w-7 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              </div>
-              <div>
-                <button
-                  onClick={() => scrollToSection("hero")}
-                  className="text-gray-800 font-bold text-2xl tracking-tight hover:text-blue-600 transition-colors"
-                >
-                  Learnix
-                </button>
-                <p className="text-xs text-gray-500 font-medium">Learn • Grow • Succeed</p>
-              </div>
-            </div>
+<nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-lg z-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between h-20">
+      {/* Logo Section */}
+      <div className="flex items-center space-x-4">
+        <div>
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="text-gray-800 font-bold text-2xl tracking-tight hover:text-blue-600 transition-colors"
+          >
+            Learnix
+          </button>
+          <p className="text-xs text-gray-500 font-medium">Learn • Grow • Succeed</p>
+        </div>
+      </div>
 
-            {/* Desktop Navigation with Modern Pills */}
-            <div className="hidden md:flex items-center space-x-2">
-              <div className="flex items-center space-x-1 bg-gray-100 rounded-full p-1">
-                <button
-                  onClick={() => scrollToSection("hero")}
-                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => scrollToSection("courses")}
-                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
-                >
-                  Courses
-                </button>
-                <button
-                  onClick={() => scrollToSection("faq")}
-                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
-                >
-                  FAQ
-                </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
-                >
-                  Contact
-                </button>
-              </div>
-
-              {/* Enhanced Login Dropdown */}
-              <div className="relative ml-4">
-                <button
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-8 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                  <span>Login</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
-                </button>
-
-                <div
-                  className={`absolute right-0 mt-3 w-64 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 transition-all duration-300 ${
-                    isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-                  }`}
-                >
-                  <div className="p-2">
-                    <Link
-                      href="/login/lecturer"
-                      className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
-                    >
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                        
-                      </div>
-                      <div>
-                        <p className="font-semibold">Lecturer Portal</p>
-                        <p className="text-xs text-gray-500">Manage your courses</p>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/login/student"
-                      className="flex items-center space-x-3 px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl group"
-                    >
-                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-
-                      </div>
-                      <div>
-                        <p className="font-semibold">Student Portal</p>
-                        <p className="text-xs text-gray-500">Access your learning</p>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-gray-700 text-2xl p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? "✕" : "☰"}
-            </button>
-          </div>
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center space-x-2">
+        <div className="flex items-center space-x-1 bg-gray-100 rounded-full p-1">
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => scrollToSection("courses")}
+            className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            Courses
+          </button>
+          <button
+            onClick={() => scrollToSection("faq")}
+            className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            FAQ
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-gray-700 font-medium px-6 py-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            Contact
+          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50 transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-          }`}
-        >
-          <div className="px-4 pt-4 pb-6 space-y-2">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection("courses")}
-              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
-            >
-              Courses
-            </button>
-            <button
-              onClick={() => scrollToSection("faq")}
-              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
-            >
-              FAQ
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
-            >
-              Contact
-            </button>
+        {/* Login Dropdown */}
+        <div className="relative ml-4">
+          <button
+            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-8 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            <span>Login</span>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-300 ${
+                isDropdownOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
 
-            <div className="pt-4 border-t border-gray-200">
-              <div className="space-y-2">
-                <Link
-                  href="/login/lecturer"
-                  className="flex items-center space-x-3 text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  
-                  <span>Lecturer Portal</span>
-                </Link>
-                <Link
-                  href="/login/student"
-                  className="flex items-center space-x-3 text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Users className="h-5 w-5 text-purple-600" />
-                  <span>Student Portal</span>
-                </Link>
-              </div>
+          <div
+            className={`absolute right-0 mt-3 w-64 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200/50 transition-all duration-300 ${
+              isDropdownOpen
+                ? "opacity-100 visible translate-y-0"
+                : "opacity-0 invisible -translate-y-2"
+            }`}
+          >
+            <div className="p-2 space-y-2">
+              <Link
+                href="/login/lecturer"
+                className="block px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl"
+              >
+                Lecturer Portal
+              </Link>
+              <Link
+                href="/login/student"
+                className="block px-4 py-4 text-gray-700 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 transition-all duration-300 rounded-xl"
+              >
+                Student Portal
+              </Link>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden text-gray-700 text-2xl p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? "✕" : "☰"}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu */}
+  <div
+    className={`md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50 transition-all duration-300 ${
+      isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+    }`}
+  >
+    <div className="px-4 pt-4 pb-6 space-y-2">
+      <button
+        onClick={() => scrollToSection("hero")}
+        className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        Home
+      </button>
+      <button
+        onClick={() => scrollToSection("courses")}
+        className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        Courses
+      </button>
+      <button
+        onClick={() => scrollToSection("faq")}
+        className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        FAQ
+      </button>
+      <button
+        onClick={() => scrollToSection("contact")}
+        className="block w-full text-left text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors duration-300"
+      >
+        Contact
+      </button>
+
+      <div className="pt-4 border-t border-gray-200">
+        <div className="space-y-2">
+          <Link
+            href="/login/lecturer"
+            className="block text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Lecturer Portal
+          </Link>
+          <Link
+            href="/login/student"
+            className="block text-gray-700 font-medium px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Student Portal
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
@@ -273,7 +259,7 @@ export default function LandingPage() {
     {/* Header */}
     <div className="text-center mb-12">
       <div className="flex items-center justify-center mb-4">
-        <Sparkles className="h-7 w-7 text-blue-500 mr-2" />
+        
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Find Your Perfect Course
         </h2>
