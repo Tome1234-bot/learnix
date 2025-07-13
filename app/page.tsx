@@ -100,7 +100,6 @@ export default function LandingPage() {
           >
             Learnix
           </button>
-          <p className="text-xs text-gray-500 font-medium">Learn • Grow • Succeed</p>
         </div>
       </div>
 
