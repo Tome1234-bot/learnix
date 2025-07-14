@@ -86,11 +86,10 @@ export default function LandingPage() {
    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex items-center justify-between h-20">
       {/* Logo with Icon */}
-      <div className="flex items-center space-x-4">
-  {/* Logo Icon */}
+     <div className="flex items-center space-x-4">
   <div className="relative">
     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-      <GraduationCap className="h-7 w-7 text-white" />
+      <img src="/splash-icon copy.png" alt="Logo" className="h-7 w-7" />
     </div>
     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
   </div>
