@@ -83,23 +83,17 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white font-sans">
       {/* Modern Glassmorphism Navigation */}
 <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-lg z-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div className="flex items-center justify-between h-20">
-    {/* Logo with Icon */}
-    <div className="flex items-center space-x-4">
-      <div className="relative">
-        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-          <img
-            src="/splash-icon-copy.png" // Make sure the image file is renamed to remove space
-            alt="Logo"
-            className="h-7 w-7"
-          />
+   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between h-20">
+      {/* Logo with Icon */}
+      <div className="flex items-center space-x-4">
+        <div className="relative">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <GraduationCap className="h-7 w-7 text-white" />
+          </div>
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
         </div>
-        <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-      </div>
     </div>
-  </div>
-</div>
 
 
         <div>
