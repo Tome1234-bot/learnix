@@ -87,12 +87,18 @@ export default function LandingPage() {
     <div className="flex items-center justify-between h-20">
       {/* Logo with Icon */}
       <div className="flex items-center space-x-4">
-        <div className="relative">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <GraduationCap className="h-7 w-7 text-white" />
-          </div>
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-        </div>
+  <div className="relative">
+    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+      <img
+        src="/splash-icon.png" // Update this to your correct public path
+        alt="Logo"
+        className="h-7 w-7"
+      />
+    </div>
+    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+  </div>
+</div>
+
         <div>
           <button
             onClick={() => scrollToSection("hero")}
