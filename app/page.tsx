@@ -88,9 +88,14 @@ export default function LandingPage() {
       {/* Logo with Icon */}
      <div className="flex items-center space-x-4">
   <div className="relative">
-    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-      <img src="/splash-icon copy.png" alt="Logo" className="h-7 w-7" />
-    </div>
+   <div className="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out border border-gray-200">
+  <img 
+    src="/splash-icon copy.png" 
+    alt="Logo" 
+    className="h-8 w-8 object-contain drop-shadow-md" 
+  />
+</div>
+
     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
   </div>
 
