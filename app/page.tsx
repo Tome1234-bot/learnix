@@ -97,6 +97,7 @@ export default function LandingPage() {
       </div>
 
 
+      <div>
         <div>
           <button
             onClick={() => scrollToSection("hero")}
