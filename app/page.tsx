@@ -90,7 +90,7 @@ export default function LandingPage() {
   <div className="relative">
     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
       <img
-        src="/splash-icon.png" // Update this to your correct public path
+        src="/splash-icon copy.png" // Update this to your correct public path
         alt="Logo"
         className="h-7 w-7"
       />
