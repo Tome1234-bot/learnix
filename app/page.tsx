@@ -88,15 +88,14 @@ export default function LandingPage() {
       {/* Logo with Icon */}
      <div className="flex items-center space-x-4">
   <div className="relative">
-   <div className="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out border border-gray-200">
+<div className="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out border border-gray-200 overflow-hidden">
   <img 
     src="/splash-icon copy.png" 
     alt="Logo" 
-    className="h-8 w-8 object-contain drop-shadow-md" 
+    className="w-full h-full object-cover" 
   />
 </div>
 
-    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
   </div>
 
   {/* Learnix Button */}
